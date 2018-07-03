@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('filemanager', 'FileFolderController@index');
+Route::get('filemanager', 'FileManagerController@index');
