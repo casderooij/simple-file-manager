@@ -1,0 +1,69 @@
+@import "variables"
+@import "mixins"
+
+body
+    background-color: $fm-background-grey
+    color: $dark
+    font-family: $font-family-sans-serif
+    margin: 0
+    padding: 0
+
+nav
+    background-color: #ffffff
+    padding: 1rem 2rem
+
+main
+
+.pageTitle
+    font-size: 1.5rem
+
+.container_block
+    background-color: #FFFFFF
+    border-radius: 4px
+    margin: 10rem auto 0
+    padding: 2.5rem
+    width: 40rem
+
+.container_block__form
+    display: flex
+
+.container_block__input
+    background-color: $fm-background-grey
+    border: none
+    border-top-left-radius: 4px
+    border-bottom-left-radius: 4px
+    flex-grow: 1
+    font-size: 1.5rem
+    margin: 0
+    padding: 0.5rem 1rem
+
+.container_block__input:focus
+    outline: none
+
+.container_block__button
+    background-color: $fm-green
+    border: none
+    border-top-right-radius: 4px
+    border-bottom-right-radius: 4px
+    color: $dark
+    cursor: pointer
+    font-size: 1.5rem
+    padding: 0.5rem 2rem
+    transition: background-color 0.1s ease-in-out
+
+.container_block__button:hover
+    background: $fm-green-dark
+
+.container_block__list_item
+    border-radius: 4px
+    padding:  0.5rem 1rem
+
+    &:nth-child(even)
+        background-color: $fm-background-grey
+
+.list_item
+    +e('title')
+        color: red
+
+    +e('count')
+        color: green
