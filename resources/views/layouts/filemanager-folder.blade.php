@@ -10,11 +10,12 @@
     <title>File Manager - @yield('title')</title>
 </head>
 <body>
-    <nav>
-        <div class="pageTitle">File Manager - @yield('title')</div>
+    <nav class="navigation--folder">
+        <a class="navigation__link" href="{{ route('filemanager') }}">Filemanager</a>
+        <div class="navigation__title navigation__title--bold">@yield('title')</div>
     </nav>
-    <div class="container">
+    <main class="main_container">
         @yield('content')
-    </div>
+    </main>
 </body>
 </html>

@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('filemanager', 'FileManagerController@index');
+Route::get('filemanager', 'FileManagerController@index')->name('filemanager');
+Route::post('filemanager', 'FileManagerController@filter');
+
+Route::get('filemanager/{id}', 'FileFolderController@show')->name('filefolder');
+Route::post('filefolder', 'FileFolderController@store');

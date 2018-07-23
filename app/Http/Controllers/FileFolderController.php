@@ -35,7 +35,12 @@ class FileFolderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $folder = new FileFolder;
+        if($request->title) {
+            $folder->title = $request->title;
+            $folder->save();
+        }
+        return redirect()->route('filemanager');
     }
 
     /**
@@ -44,9 +49,10 @@ class FileFolderController extends Controller
      * @param  \App\FileFolder  $fileFolder
      * @return \Illuminate\Http\Response
      */
-    public function show(FileFolder $fileFolder)
+    public function show(FileFolder $fileFolder, $id)
     {
-        //
+        $folder = FileFolder::findOrFail($id);
+        return view('filemanager.filefolder', compact('folder'));
     }
 
     /**

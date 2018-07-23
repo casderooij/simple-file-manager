@@ -1,24 +1,26 @@
-@extends('layouts.filemanager')
+@extends('layouts.filemanager-overview')
 
 @section('title', 'folder overview')
 
 @section('content')
-    <main>
-        <div class="container_block">
-            <form class="container_block__form" action="#" method="POST">
-                <input class="container_block__input" type="text" placeholder="name of folder">
-                <input class="container_block__button" type="submit" value="add">
-            </form>
-        </div>
 
-        <div class="container_block">
+    <div class="filemanager_container">
+
+        <form class="folder_form" action="filefolder" method="POST">
+            {{ csrf_field() }}
+            <input class="folder_form__input" type="text" name="title">
+            <input class="folder_form__button" type="submit" value="add">
+        </form>
+
+        <div class="folder_list">
         @foreach ($filefolders as $filefolder)
-            <div class="container_block__list_item">
+            <a href="{{ route('filefolder', ['id' => $filefolder->id]) }}" class="list_item">
                 <span class="list_item__title">{{ $filefolder->title }}</span>
                 <span class="list_item__count">{{ count($filefolder->files) }} files</span>
-            </div>
+            </a>
         @endforeach
         </div>
-    </main>
+
+    </div>
 
 @endsection
